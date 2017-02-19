@@ -1,2 +1,7 @@
 ---
 # vars file for mail_gw
+
+# Override defaults
+
+# PKG REPO defaults override
+default_repo_enabled: true

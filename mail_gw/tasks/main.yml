@@ -12,17 +12,4 @@
     msg: "default group is: '{{ default_group }}'"
 
 - debug:
-    msg: "default hosts are: '{{ default_hosts }}'"
-
-- debug:
-    msg: "default REPO is: '{{ default_repo_name }}'"
-
-- name: I'm the first task of the list
-  command: echo ""
-  tags: test
-
-- name: Test IP
-  template:
-    src: templates/test_only/test_IP.j2
-    dest: $HOME/test_ip.txt
-  tags: test
+    msg: "REPO enabled? '{{ default_repo_enabled }}'"

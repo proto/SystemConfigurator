@@ -1,0 +1,33 @@
+# Ansible Task
+# date: '19/02/17'
+
+- name: Install certificates
+  command: pkg install -y ca_root_nss
+- name: Create Repo dir
+  file:
+    path: /usr/local/etc/pkg/repos
+    state: directory
+    mode: 0750
+- name: Copy Cert Files
+  copy:
+    src: files/certficates/ssl/certs/poudriere.cert
+    dest: /usr/local/etc/ssl/certs/
+    owner: root
+    group: wheel
+    mode: 0600
+- name: Copy Repo Files Poudriere
+  template:
+    src: templates/pkg/poudriere.conf.j2
+    dest: /usr/local/etc/pkg/repos/
+    owner: root
+    group: wheel
+    mode: 0600
+- name: Copy Repo Files FreeBSD
+  template:
+    src: templates/pkg/FreeBSD.conf.j2
+    dest: /usr/local/etc/pkg/repos/
+    owner: root
+    group: wheel
+    mode: 0600
+- name: Update PKGs
+  command: pkg update
