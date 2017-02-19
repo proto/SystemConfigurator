@@ -6,6 +6,4 @@
 - hosts: "{{ lookup('env','DEF_GROUP') }}"
   roles:
     - role: mail_gw
-  tasks:
-  - debug:
-      msg: "{{ lookup('env','DEF_HOSTS') }}"
+

@@ -1,5 +1,25 @@
 ---
 # tasks file for mail_gw
 
+- name: Debug Mode
+  command: echo ""
+  tags: test
+
+- debug:
+    msg: Entering in Test Mode
+
+- debug:
+    msg: "default group is: '{{ default_group }}'"
+
+- debug:
+    msg: "default hosts are: '{{ default_hosts }}'"
+
 - name: I'm the first task of the list
   command: echo ""
+  tags: test
+
+- name: Test IP
+  template:
+    src: templates/test_only/test_IP.j2
+    dest: $HOME/test_ip.txt
+  tags: test

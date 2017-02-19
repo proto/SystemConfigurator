@@ -1,0 +1,12 @@
+# Ansible Template
+# date: '19/02/17'
+
+# REJECT from my nodes
+{% for host in groups[(default_group)] %}
+{% set nodes = [(host), ( hostvars[host]['ansible_default_ipv4']['address'] )] %}
+{%- if host == host %}
+{{ nodes[1] }}  REJECT  -  Wasting your precious time, go play WoT
+{% else %}
+{{ nodes[0] }}  REJECT  -  Wasting your precious time, go play WoT
+{% endif -%}
+{% endfor %}

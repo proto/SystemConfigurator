@@ -1,2 +1,5 @@
 ---
 # defaults file for mail_gw
+
+default_group: "{{ lookup('env','DEF_GROUP') }}"
+default_hosts: "{{ lookup('env','DEF_HOSTS') }}"
