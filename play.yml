@@ -1,0 +1,11 @@
+# Ansible Main Playbook
+# add hosts and roles
+# date: '19/02/17'
+
+---
+- hosts: "{{ lookup('env','DEF_GROUP') }}"
+  roles:
+    - role: mail_gw
+  tasks:
+  - debug:
+      msg: "{{ lookup('env','DEF_HOSTS') }}"

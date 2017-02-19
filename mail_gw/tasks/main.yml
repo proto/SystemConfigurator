@@ -1,2 +1,5 @@
 ---
 # tasks file for mail_gw
+
+- name: I'm the first task of the list
+  command: echo ""
