@@ -1,6 +1,8 @@
 #!/bin/bash
 # Static ENV Vars Configuration file
 
+### SAMPLE FILE...
+
 # PKG
 export REPO_DEFAULT=false
 export REPO_NAME=my_repo_name
