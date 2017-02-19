@@ -10,6 +10,8 @@ Install a mail gateway on FreeBSD using ENV VARS.
 
 ## Run
 
+Configure Variables in ''env_vars.conf'' first.
+
 ```
 ansible-playbook play.yml --skip-test
 ```
