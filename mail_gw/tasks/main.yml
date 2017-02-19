@@ -14,6 +14,9 @@
 - debug:
     msg: "default hosts are: '{{ default_hosts }}'"
 
+- debug:
+    msg: "default REPO is: '{{ default_repo_name }}'"
+
 - name: I'm the first task of the list
   command: echo ""
   tags: test

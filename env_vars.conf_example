@@ -1,0 +1,10 @@
+#!/bin/bash
+# Static ENV Vars Configuration file
+
+# PKG
+export REPO_DEFAULT=false
+export REPO_NAME=my_repo_name
+export REPO_URL=my.repo.url
+export REPO_BUILD=MGW_20170212-MGW_20170212
+export REPO_KEY=my_repo.cert
+export REPO_PRI=100

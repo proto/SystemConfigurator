@@ -1,5 +1,16 @@
 ---
 # defaults file for mail_gw
 
+# ENV Variables
+# Group & Hosts
 default_group: "{{ lookup('env','DEF_GROUP') }}"
 default_hosts: "{{ lookup('env','DEF_HOSTS') }}"
+
+# PKG repository
+default_repo_enabled: "{{ lookup('env','REPO_DEFAULT') }}"
+default_repo_name: "{{ lookup('env','REPO_NAME') }}"
+default_repo_method: "{{ lookup('env','REPO_METHOD') }}"
+default_repo_url: "{{ lookup('env','REPO_URL') }}"
+default_repo_build: "{{ lookup('env','REPO_BUILD') }}"
+default_repo_key: "{{ lookup('env','REPO_KEY') }}"
+default_repo_pri: "{{ lookup('env','REPO_PRI') }}"
