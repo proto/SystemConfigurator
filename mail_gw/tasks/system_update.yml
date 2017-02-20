@@ -1,0 +1,35 @@
+---
+# Ansible Task
+# date: '19/02/17'
+
+# Check System Update
+# default is true, but cannot perform upgrade!
+
+- name: Check System
+  command: uname -r
+  register: os_version
+- debug:
+    msg: "{{os_version.stdout}}"
+
+- name: Check FreeBSD version
+  command: freebsd-version -u
+  register: user_version
+- debug:
+    msg: "{{user_version.stdout}}"
+
+- name: Perform PKG Update
+  command: pkg update
+  register: updated
+- debug:
+    msg: "PKG update result: {{updated.stdout}}"
+
+- name: Perform PKG audit
+  command: pkg audit
+  register: audit
+- debug:
+    msg: "PKG audit result: {{audit.stdout}}"
+
+- name: Perform System Upgrade
+  command: echo "You wish..."
+- debug:
+    msg: "Please UPGRADE system manually"

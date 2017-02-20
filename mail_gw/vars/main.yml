@@ -1,7 +1,33 @@
 ---
 # vars file for mail_gw
 
-# Override defaults
+# Override defaults vars
 
-# PKG REPO defaults override
+### BASIC SYSTEM ###
+# System Configured
+system_configured: true
+
+# boot loader
+loader_installed: true
+
+# System Update
+check_system_update: false
+
+# SSHD
+ssh_port: 22190
+ssh_inet: inet
+banner: /usr/local/etc/issue.net
+
+# System Software
+sw_base: true
+
+# ZFS
+zfsnap_installed: true
+zfsnap_configured: true
+zfsnap_enabled: true
+
+# PKG REPO
+repo_configured: true
 default_repo_enabled: true
+freebsd_repo_enabled: true
+

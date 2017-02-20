@@ -1,6 +1,7 @@
 # README
 
 Ansible Structure for a mail gateway
+Two nodes, DNS balanced.
 
 
 ## What
@@ -13,14 +14,20 @@ Install a mail gateway on FreeBSD using ENV VARS.
 Configure Variables in *env_vars.conf* first.
 
 ```
-ansible-playbook play.yml --skip-test
+source config.sh
+```
+
+```
+ansible-playbook -s play.yml
 ```
 
 
 ## Testing Mode
 
+Set variable debug to true in * defaults/main.yml*
+
 ```
-ansible-playbook play.yml
+debug_vars: true
 ```
 
 

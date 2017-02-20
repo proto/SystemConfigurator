@@ -1,0 +1,14 @@
+---
+# Ansible Vars
+# date: '20/02/17'
+
+# SSL ENV Vars
+ssl_master: "{{ lookup('env','SSL_L_MASTER') }}"
+ssl_local_store: "{{ lookup('env','SSL_L_STORE') }}"
+
+# SSL dir
+ssl_dir: /usr/local/etc/ssl/certs
+
+# LetsEncrypt
+enable_le: false
+le_dir: /usr/local/etc/letsencrypt

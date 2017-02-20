@@ -1,0 +1,22 @@
+---
+# Ansible Task
+# date: '19/02/17'
+
+# Install System Software
+
+- block:
+
+  - name: Install zfsnap
+    command: pkg install -y zfsnap
+    when: (zfsnap_installed == false)
+
+  - name: Install zfsnap crontabs
+    template:
+      src: templates/system/crontab.j2
+      dest: /etc/crontab
+      owner: root
+      group: wheel
+      mode: 644
+      backup: yes
+    when: (zfsnap_enabled == true) and
+          (zfsnap_configured == false)

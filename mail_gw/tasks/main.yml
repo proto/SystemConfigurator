@@ -1,15 +1,31 @@
 ---
 # tasks file for mail_gw
 
-- name: Debug Mode
-  command: echo ""
-  tags: test
+- block:
+  - name: Check ENV VARS before starting up
+    include: test_vars.yml
+    when: (debug_vars == true)
 
-- debug:
-    msg: Entering in Test Mode
+- block:
+  - name: System Basic Configuration
+    include: system_basic.yml
+    when: (system_configured == false)
 
-- debug:
-    msg: "default group is: '{{ default_group }}'"
+- block:
+  - name: Create Repositories
+    include: create_repo.yml
+    when: (repo_configured == false)
 
-- debug:
-    msg: "REPO enabled? '{{ default_repo_enabled }}'"
+- block:
+  - name: System Update
+    include: system_update.yml
+    when: (check_system_update == true)
+
+- block:
+  - name: Install System Software
+    include: system_sw_base.yml
+    when: (sw_base == true)
+
+- block:
+  - name: Certificates
+    include: certs.yml

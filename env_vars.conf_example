@@ -2,12 +2,28 @@
 # Static ENV Vars Configuration file
 
 ### SAMPLE FILE...
+# to fix
 
 # PKG
-export REPO_DEFAULT=false
-export REPO_NAME=my_repo_name
-export REPO_METHOD=https
-export REPO_URL=my.repo.url
-export REPO_BUILD=my_build
-export REPO_KEY=my_repo.cert
-export REPO_PRI=100
+vars() {
+    case "$1" in
+        set)
+            export REPO_DEFAULT=false
+            export REPO_NAME=my_repo_name
+            export REPO_METHOD=https
+            export REPO_URL=my.repo.url
+            export REPO_BUILD=my_build
+            export REPO_KEY=my_repo.cert
+            export REPO_PRI=100
+        ;;
+        unset)
+            unset REPO_DEFAULT
+            unset REPO_NAME
+            unset REPO_METHOD
+            unset REPO_URL
+            unset REPO_RDIR
+            unset REPO_KEY
+            unset REPO_PRI
+        ;;
+    esac
+}

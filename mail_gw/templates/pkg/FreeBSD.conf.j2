@@ -3,5 +3,9 @@
 # Last modified {{ ansible_date_time.date }} @ {{ ansible_date_time.time }}
 
 FreeBSD: {
+{% if (freebsd_repo_enabled) %}
 	enabled: yes
+{% else %}
+    enabled: no
+{% endif %}
 }

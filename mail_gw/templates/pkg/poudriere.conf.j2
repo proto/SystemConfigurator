@@ -2,11 +2,11 @@
 # date: '19/02/17'
 # Last modified {{ ansible_date_time.date }} @ {{ ansible_date_time.time }}
 
-(default_repo_name): {
-    url: "(default_repo_method)://(default_repo_url)/packages/(default_repo_build)",
+{{ default_repo_name }}: {
+    url: "{{ default_repo_method }}://{{ default_repo_url }}/packages/{{ default_repo_build }}",
     mirror_type: "http",
     signature_type: "pubkey",
-    pubkey: "/usr/local/etc/ssl/certs/(default_repo_key)",
+    pubkey: "/usr/local/etc/ssl/certs/{{ default_repo_key }}",
     enabled: yes,
-    priority: (default_repo_pri)
+    priority: {{ default_repo_pri }}
 }

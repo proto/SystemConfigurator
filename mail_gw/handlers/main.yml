@@ -1,2 +1,9 @@
 ---
 # handlers file for mail_gw
+
+# Restart services
+
+- name: SSH restart
+  service:
+    name: 'sshd'
+    state: 'restarted'

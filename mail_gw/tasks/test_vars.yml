@@ -1,0 +1,24 @@
+---
+# Ansible Task
+# date: '19/02/17'
+
+# Debug Mode
+
+- include_vars:
+    file: 'vars/certs_var.yml'
+    name: certs_var
+
+- include_vars:
+    file: 'defaults/main.yml'
+    name: defaults_var
+
+- debug:
+    msg: Entering in Test Mode
+
+- debug:
+    msg: "Default VARs: '{{ defaults_var }}'"
+
+- debug:
+    msg: "Certs VARs '{{ certs_var }}'"
+
+

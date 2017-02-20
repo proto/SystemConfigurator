@@ -1,0 +1,39 @@
+---
+# Ansible Task
+# date: '20/02/17'
+
+# basic System Configuration
+# services and boot loader
+
+- name: Reconfigure SSH
+  template:
+    src: templates/system/sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: wheel
+    mode: 0644
+    backup: yes
+  notify: [ SSH restart ]
+
+- name: issue banner
+  template:
+    src: templates/system/issue.net.j2
+    dest: /usr/local/etc/issue.net
+    owner: root
+    group: wheel
+    mode: 0444
+    backup: yes
+
+- name: Boot Loader Configuration
+  template:
+    src: templates/boot/loader.conf.j2
+    dest: /boot/loader.conf
+    owner: root
+    group: wheel
+    mode: 0644
+    backup: yes
+  when: loader_installed == false
+
+- debug:
+    msg: "Please INSPECT system changes and REBOOT system manually"
+  when: loader_installed == false
